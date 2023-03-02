@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA2DCA9F29B09877001FC8F4 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2DCA9E29B09877001FC8F4 /* Box.swift */; };
+		DA2DCAA129B0CA66001FC8F4 /* BitMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2DCAA029B0CA66001FC8F4 /* BitMaskCategory.swift */; };
 		DA9E61A729AF8F3C004886E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E61A629AF8F3C004886E8 /* AppDelegate.swift */; };
 		DA9E61A929AF8F3C004886E8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9E61A829AF8F3C004886E8 /* art.scnassets */; };
 		DA9E61AB29AF8F3C004886E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E61AA29AF8F3C004886E8 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		DA2DCA9E29B09877001FC8F4 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		DA2DCAA029B0CA66001FC8F4 /* BitMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitMaskCategory.swift; sourceTree = "<group>"; };
 		DA9E61A329AF8F3C004886E8 /* ARObjectsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARObjectsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9E61A629AF8F3C004886E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA9E61A829AF8F3C004886E8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				DA9E61AA29AF8F3C004886E8 /* ViewController.swift */,
 				DA9E61B929AF8FE1004886E8 /* Plane.swift */,
 				DA2DCA9E29B09877001FC8F4 /* Box.swift */,
+				DA2DCAA029B0CA66001FC8F4 /* BitMaskCategory.swift */,
 				DA9E61AC29AF8F3C004886E8 /* Main.storyboard */,
 				DA9E61AF29AF8F3E004886E8 /* Assets.xcassets */,
 				DA9E61B129AF8F3E004886E8 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			files = (
 				DA9E61AB29AF8F3C004886E8 /* ViewController.swift in Sources */,
 				DA2DCA9F29B09877001FC8F4 /* Box.swift in Sources */,
+				DA2DCAA129B0CA66001FC8F4 /* BitMaskCategory.swift in Sources */,
 				DA9E61BA29AF8FE1004886E8 /* Plane.swift in Sources */,
 				DA9E61A729AF8F3C004886E8 /* AppDelegate.swift in Sources */,
 			);

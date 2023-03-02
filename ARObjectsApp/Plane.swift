@@ -31,6 +31,9 @@ class Plane: SCNNode {
         
         let physicsShape = SCNPhysicsShape(geometry: self.geometry!, options: nil)
         self.physicsBody = SCNPhysicsBody(type: .static, shape: physicsShape)
+        self.physicsBody?.categoryBitMask = BitMaskCategory.plane
+        self.physicsBody?.collisionBitMask = BitMaskCategory.box
+        self.physicsBody?.contactTestBitMask = BitMaskCategory.box
         
         self.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
         
