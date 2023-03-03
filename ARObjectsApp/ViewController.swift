@@ -19,15 +19,12 @@ class ViewController: UIViewController {
         sceneView.delegate = self
         
         sceneView.showsStatistics = true
-//        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         sceneView.autoenablesDefaultLighting = true
         
         let scene = SCNScene()
         
         sceneView.scene = scene
-        
-        sceneView.scene.physicsWorld.contactDelegate = self
-        
+                
         setupGestures()
     }
     
@@ -43,29 +40,6 @@ class ViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
-    }
-    
-    // Для коробки
-    @objc func placeBox(tapGesture: UITapGestureRecognizer) {
-        
-        let sceneView = tapGesture.view as! ARSCNView
-        let location = tapGesture.location(in: sceneView)
-        
-        let hitTestResult = sceneView.hitTest(location, types: .existingPlaneUsingExtent)
-        guard let hitResult = hitTestResult.first else { return }
-        
-        createBox(hitResult: hitResult)
-    }
-    
-    func createBox(hitResult: ARHitTestResult) {
-        let position = SCNVector3(
-            hitResult.worldTransform.columns.3.x,
-            hitResult.worldTransform.columns.3.y + 0.5,
-            hitResult.worldTransform.columns.3.z
-        )
-        
-        let box = Box(atPosition: position)
-        sceneView.scene.rootNode.addChildNode(box)
     }
     
     // Для моделей объектов из art
@@ -87,25 +61,21 @@ class ViewController: UIViewController {
             hitResult.worldTransform.columns.3.z
         )
         
-        let virtualObject = VirtualObject.availableObjects[1]
-        virtualObject.position = position
+        guard let virtualObject = VirtualObject.availableObjects.first else { fatalError("There is no virtual object available") }
+        
         virtualObject.load()
+        virtualObject.position = position
+        
         sceneView.scene.rootNode.addChildNode(virtualObject)
     }
     
     func setupGestures() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeBox))
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(placeVirtualObject(tapGesture:))
+        )
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
-        
-        let doubleTapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(placeVirtualObject)
-        )
-        doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        self.sceneView.addGestureRecognizer(doubleTapGestureRecognizer)
-        
-        tapGestureRecognizer.require(toFail: doubleTapGestureRecognizer)
     }
 }
 
