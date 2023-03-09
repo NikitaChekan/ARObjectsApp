@@ -66,6 +66,8 @@ class ViewController: UIViewController {
         virtualObject.load()
         virtualObject.position = position
         
+        
+        
         sceneView.scene.rootNode.addChildNode(virtualObject)
     }
     
