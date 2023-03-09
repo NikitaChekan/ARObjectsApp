@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         
         sceneView.showsStatistics = true
         sceneView.autoenablesDefaultLighting = true
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         let scene = SCNScene()
         
@@ -66,7 +67,9 @@ class ViewController: UIViewController {
         virtualObject.load()
         virtualObject.position = position
         
-        
+        if let particleSystem = SCNParticleSystem(named: "Smoke.scnp", inDirectory: nil), let smokeNode = virtualObject.childNode(withName: "SmokeNode", recursively: true) {
+            smokeNode.addParticleSystem(particleSystem)
+        }
         
         sceneView.scene.rootNode.addChildNode(virtualObject)
     }
