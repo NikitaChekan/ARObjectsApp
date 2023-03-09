@@ -46,6 +46,8 @@ class ViewController: UIViewController {
     // Для моделей объектов из art
     @objc func placeVirtualObject(tapGesture: UITapGestureRecognizer) {
         
+        self.sceneView.scene.removeAllParticleSystems()
+        
         let sceneView = tapGesture.view as! ARSCNView
         let location = tapGesture.location(in: sceneView)
         
@@ -62,7 +64,9 @@ class ViewController: UIViewController {
             hitResult.worldTransform.columns.3.z
         )
         
-        guard let virtualObject = VirtualObject.availableObjects.first else { fatalError("There is no virtual object available") }
+//        guard let virtualObject = VirtualObject.availableObjects.first else { fatalError("There is no virtual object available") }
+        
+        let virtualObject = VirtualObject.availableObjects[1]
         
         virtualObject.load()
         virtualObject.position = position
