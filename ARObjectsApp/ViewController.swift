@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         
 //        guard let virtualObject = VirtualObject.availableObjects.first else { fatalError("There is no virtual object available") }
         
-        let virtualObject = VirtualObject.availableObjects[1]
+        let virtualObject = VirtualObject.availableObjects[2]
         
         virtualObject.load()
         virtualObject.position = position
